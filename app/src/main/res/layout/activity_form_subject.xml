@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:id="@+id/main"
+    android:fitsSystemWindows="true">
+
+    <!-- Barra superior -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:background="@color/colorBackgroundSecondary"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/form_subject_title"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ScrollView del formulario -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- Código de materia -->
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/label_subject_code" />
+
+            <EditText
+                android:id="@+id/subjectCodeEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_subject_code"
+                android:inputType="textCapCharacters" />
+
+            <!-- Nombre de materia -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_subject_name" />
+
+            <EditText
+                android:id="@+id/subjectNameEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_subject_name"
+                android:inputType="textCapWords" />
+
+            <!-- Horario -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_subject_schedule" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FormLabel"
+                        android:layout_marginTop="0dp"
+                        android:textSize="14sp"
+                        android:text="@string/label_subject_schedule_start" />
+
+                    <EditText
+                        android:id="@+id/scheduleStartEditText"
+                        style="@style/FormEditText"
+                        android:hint="@string/hint_subject_schedule_start"
+                        android:inputType="time" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/FormLabel"
+                        android:layout_marginTop="0dp"
+                        android:textSize="14sp"
+                        android:text="@string/label_subject_schedule_end" />
+
+                    <EditText
+                        android:id="@+id/scheduleEndEditText"
+                        style="@style/FormEditText"
+                        android:hint="@string/hint_subject_schedule_end"
+                        android:inputType="time" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Aula -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_subject_classroom" />
+
+            <EditText
+                android:id="@+id/classroomEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_subject_classroom"
+                android:inputType="textCapCharacters" />
+
+            <!-- Nombre del docente -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_subject_teacher" />
+
+            <EditText
+                android:id="@+id/teacherNameEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_subject_teacher"
+                android:inputType="textCapWords" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botón guardar -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_primary"
+        android:text="@string/btn_save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón flotante para eliminar (solo en modo edición) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorError"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

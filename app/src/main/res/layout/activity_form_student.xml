@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:id="@+id/main"
+    android:fitsSystemWindows="true">
+
+    <!-- Barra superior -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:background="@color/colorBackgroundSecondary"
+        android:elevation="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_back"
+            android:src="@drawable/ic_arrow_back"
+            app:tint="@color/colorPrimaryText" />
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/form_student_title"
+            android:textColor="@color/colorPrimaryText"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ScrollView del formulario -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:paddingBottom="32dp">
+
+            <!-- Código de alumno -->
+            <TextView
+                style="@style/FormLabel"
+                android:text="@string/label_student_code" />
+
+            <EditText
+                android:id="@+id/studentCodeEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_student_code"
+                android:inputType="textCapCharacters" />
+
+            <!-- Nombres -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_student_name" />
+
+            <EditText
+                android:id="@+id/studentNameEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_student_name"
+                android:inputType="textCapWords" />
+
+            <!-- Apellidos -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_student_lastname" />
+
+            <EditText
+                android:id="@+id/studentLastnameEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_student_lastname"
+                android:inputType="textCapWords" />
+
+            <!-- Carnet -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_student_carnet" />
+
+            <EditText
+                android:id="@+id/studentCarnetEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_student_carnet"
+                android:inputType="number" />
+
+            <!-- Carrera -->
+            <TextView
+                style="@style/FormLabel"
+                android:layout_marginTop="20dp"
+                android:text="@string/label_student_career" />
+
+            <EditText
+                android:id="@+id/studentCareerEditText"
+                style="@style/FormEditText"
+                android:hint="@string/hint_student_career"
+                android:inputType="textCapWords" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Botón guardar -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/saveButton"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/button_primary"
+        android:text="@string/btn_save"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Botón flotante para eliminar (solo en modo edición) -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="88dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorError"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

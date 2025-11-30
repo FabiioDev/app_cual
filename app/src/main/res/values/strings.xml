@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cualma?</string>
+
+    <!-- Bienvenida -->
+    <string name="welcome_title">Cualma?</string>
+    <string name="welcome_subtitle">Gestiona tus materias de la u fácilmente</string>
+    <string name="btn_start">Comenzar</string>
+
+    <!-- Pantalla principal -->
+    <string name="main_title">Cualma?</string>
+    <string name="search_hint">Buscar por nombre, código, materia o docente...</string>
+    <string name="no_students">No hay estudiantes registrados</string>
+    <string name="no_students_subtitle">Presiona + para agregar un estudiante</string>
+
+    <!-- Navegación -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_add">Agregar</string>
+    <string name="nav_edit">Editar</string>
+    <string name="nav_delete">Eliminar</string>
+
+    <!-- Formulario Estudiante -->
+    <string name="form_student_title">Registro de Estudiante</string>
+    <string name="form_student_edit_title">Editar Estudiante</string>
+    <string name="label_student_code">Código de alumno</string>
+    <string name="label_student_name">Nombres</string>
+    <string name="label_student_lastname">Apellidos</string>
+    <string name="label_student_carnet">Carnet</string>
+    <string name="label_student_career">Carrera</string>
+    <string name="hint_student_code">ej. EST001</string>
+    <string name="hint_student_name">ej. Juan Carlos</string>
+    <string name="hint_student_lastname">ej. Pérez López</string>
+    <string name="hint_student_carnet">ej. PL100122</string>
+    <string name="hint_student_career">ej. Ingeniería en Sistemas</string>
+
+    <!-- Formulario Asignatura -->
+    <string name="form_subject_title">Registro de Asignatura</string>
+    <string name="form_subject_edit_title">Editar Asignatura</string>
+    <string name="label_subject_code">Código de materia</string>
+    <string name="label_subject_name">Nombre de materia</string>
+    <string name="label_subject_schedule">Horario</string>
+    <string name="label_subject_schedule_start">Hora inicio</string>
+    <string name="label_subject_schedule_end">Hora fin</string>
+    <string name="label_subject_classroom">Aula</string>
+    <string name="label_subject_teacher">Nombre del docente</string>
+    <string name="hint_subject_code">ej. MAT101</string>
+    <string name="hint_subject_name">ej. Cálculo Diferencial</string>
+    <string name="hint_subject_schedule_start">ej. 08:00am</string>
+    <string name="hint_subject_schedule_end">ej. 09:50am</string>
+    <string name="hint_subject_classroom">ej. A21-A22</string>
+    <string name="hint_subject_teacher">ej. Dr. Roberto Martínez</string>
+
+    <!-- Botones -->
+    <string name="btn_save">Guardar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_edit">Editar</string>
+    <string name="btn_delete">Eliminar</string>
+
+    <!-- Detalles -->
+    <string name="details_student_title">Detalles del Estudiante</string>
+    <string name="details_subject_title">Detalles de la Asignatura</string>
+    <string name="label_subjects">Asignaturas</string>
+
+    <!-- Descripciones -->
+    <string name="desc_back">Regresar</string>
+    <string name="desc_search">Buscar</string>
+    <string name="desc_logo">Logo Cualma?</string>
+</resources>
