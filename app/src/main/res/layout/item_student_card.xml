@@ -73,7 +73,7 @@
             android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/ic_chevron_right"
-            app:tint="@color/colorSecondaryText" />
+            app:tint="@color/colorPrimary" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

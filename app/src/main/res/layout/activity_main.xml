@@ -7,7 +7,6 @@
     android:id="@+id/main"
     android:background="@color/colorBackground">
 
-    <!-- Header con logo y nombre de la app -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
@@ -15,7 +14,7 @@
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:padding="16dp"
-        android:background="@color/colorBackgroundSecondary"
+        android:background="@drawable/gradient_background"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,12 +33,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:text="@string/app_name"
-            android:textColor="@color/colorSecondary"
+            android:textColor="@android:color/white"
             android:textSize="24sp"
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- Barra de búsqueda -->
     <androidx.cardview.widget.CardView
         android:id="@+id/searchCardView"
         android:layout_width="0dp"
@@ -84,7 +82,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- ScrollView con lista de estudiantes -->
     <ScrollView
         android:id="@+id/studentsScrollView"
         android:layout_width="0dp"
@@ -101,55 +98,63 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Contenedor para estudiantes -->
             <LinearLayout
                 android:id="@+id/studentsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingHorizontal="16dp"
-                android:paddingBottom="16dp" />
+                android:paddingBottom="80dp" /> <LinearLayout
+            android:id="@+id/emptyStateLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:visibility="gone">
 
-            <!-- Mensaje cuando no hay estudiantes -->
-            <LinearLayout
-                android:id="@+id/emptyStateLayout"
-                android:layout_width="match_parent"
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_empty_state"
+                android:alpha="0.5"
+                app:tint="@color/colorSecondaryText" />
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="32dp"
-                android:visibility="gone">
+                android:layout_marginTop="16dp"
+                android:text="@string/no_students"
+                android:textColor="@color/colorPrimaryText"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/ic_empty_state"
-                    android:alpha="0.5"
-                    app:tint="@color/colorSecondaryText" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/no_students"
-                    android:textColor="@color/colorPrimaryText"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/no_students_subtitle"
-                    android:textColor="@color/colorSecondaryText"
-                    android:textSize="14sp"
-                    android:textAlignment="center" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/no_students_subtitle"
+                android:textColor="@color/colorSecondaryText"
+                android:textSize="14sp"
+                android:textAlignment="center" />
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <!-- Barra de navegación inferior -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/exportFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_export"
+        android:contentDescription="Exportar base de datos"
+        app:backgroundTint="@color/colorSecondary"
+        app:tint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
@@ -161,7 +166,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!-- Botón Inicio -->
         <LinearLayout
             android:id="@+id/homeButton"
             android:layout_width="0dp"
@@ -185,7 +189,6 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Botón Agregar -->
         <LinearLayout
             android:id="@+id/addButton"
             android:layout_width="0dp"

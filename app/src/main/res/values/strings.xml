@@ -9,7 +9,7 @@
 
     <!-- Pantalla principal -->
     <string name="main_title">Cualma?</string>
-    <string name="search_hint">Buscar por nombre, código, materia o docente...</string>
+    <string name="search_hint">Buscar por nombre, materia o docente...</string>
     <string name="no_students">No hay estudiantes registrados</string>
     <string name="no_students_subtitle">Presiona + para agregar un estudiante</string>
 

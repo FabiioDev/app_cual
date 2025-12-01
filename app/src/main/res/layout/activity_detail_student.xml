@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     android:background="@color/colorBackground"
     android:fitsSystemWindows="true">
 
@@ -191,6 +192,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:orientation="vertical" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddSubject"
+                    android:layout_width="200dp"
+                    android:layout_height="35dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/button_primary"
+                    android:text="+ Agregar Asignatura"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    android:textAllCaps="false"/>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -223,27 +237,27 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <!-- Botón Inicio -->
-        <LinearLayout
-            android:id="@+id/homeButton"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/homeButton"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:gravity="center"-->
+<!--            android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/ic_home"
-                app:tint="@color/colorMenuText" />
+<!--            <ImageView-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp"-->
+<!--                android:src="@drawable/ic_home"-->
+<!--                app:tint="@color/colorMenuText" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nav_home"
-                android:textColor="@color/colorMenuText"
-                android:textSize="14sp" />
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="@string/nav_home"-->
+<!--                android:textColor="@color/colorMenuText"-->
+<!--                android:textSize="14sp" />-->
+<!--        </LinearLayout>-->
 
         <!-- Botón Editar -->
         <LinearLayout
@@ -258,13 +272,13 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/ic_edit"
-                app:tint="@color/colorMenuText" />
+                app:tint="@color/colorPrimary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/nav_edit"
-                android:textColor="@color/colorMenuText"
+                android:textColor="@color/colorPrimary"
                 android:textSize="14sp" />
         </LinearLayout>
 
