@@ -27,7 +27,7 @@ public class ActivityDetailStudent extends AppCompatActivity {
     private TextView nameTv, codeTv, carnetTv, careerTv;
     private LinearLayout subjectsContainer, editButton, deleteButton, homeButton;
     private ImageButton backButton;
-    private Button btnAddSubject; // Referencia al botón del layout
+    private Button btnAddSubject;
     private int studentId;
 
     private final ActivityResultLauncher<Intent> updateLauncher = registerForActivityResult(
@@ -75,19 +75,12 @@ public class ActivityDetailStudent extends AppCompatActivity {
     private void setupListeners() {
         backButton.setOnClickListener(v -> finish());
 
-//        homeButton.setOnClickListener(v -> {
-//            Intent intent = new Intent(this, MainActivity.class);
-//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//            startActivity(intent);
-//        });
-
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, ActivityFormStudent.class);
             intent.putExtra("STUDENT_ID", studentId);
             updateLauncher.launch(intent);
         });
 
-        // Listener del botón agregar asignatura
         btnAddSubject.setOnClickListener(v -> {
             Intent intent = new Intent(this, ActivityFormSubject.class);
             intent.putExtra("STUDENT_ID", studentId);
@@ -101,7 +94,6 @@ public class ActivityDetailStudent extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "bd_cualma", null, 1);
         SQLiteDatabase db = admin.getReadableDatabase();
 
-        // 1. Cargar Estudiante
         Cursor cursor = db.rawQuery("SELECT nombres, apellidos, codigo_estudiante, carnet, carrera FROM estudiantes WHERE id = ?", new String[]{String.valueOf(studentId)});
         if (cursor.moveToFirst()) {
             nameTv.setText(cursor.getString(0) + " " + cursor.getString(1));
@@ -111,7 +103,6 @@ public class ActivityDetailStudent extends AppCompatActivity {
         }
         cursor.close();
 
-        // 2. Cargar Materias
         subjectsContainer.removeAllViews();
         Cursor cursorMat = db.rawQuery("SELECT id, nombre, codigo_materia, hora_inicio, hora_fin, aula, nombre_docente FROM materias WHERE id_estudiante = ?", new String[]{String.valueOf(studentId)});
 
@@ -141,8 +132,9 @@ public class ActivityDetailStudent extends AppCompatActivity {
         ((TextView) view.findViewById(R.id.subjectClassroomTextView)).setText(classroom);
         ((TextView) view.findViewById(R.id.subjectTeacherTextView)).setText(teacher);
 
+        // CAMBIO PRINCIPAL: Redirigir a ActivityDetailSubject
         view.setOnClickListener(v -> {
-            Intent intent = new Intent(this, ActivityFormSubject.class);
+            Intent intent = new Intent(this, ActivityDetailSubject.class);
             intent.putExtra("SUBJECT_ID", id);
             intent.putExtra("STUDENT_ID", studentId);
             updateLauncher.launch(intent);

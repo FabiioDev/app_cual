@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText searchEditText;
     private ImageView searchIconImageView;
     private LinearLayout addButton;
-    private FloatingActionButton exportFab; // Nuevo botón
+    private FloatingActionButton exportFab;
+    private FloatingActionButton exitFab;
 
     // Launcher para refrescar la lista si agregamos/editamos algo
     private final ActivityResultLauncher<Intent> formLauncher = registerForActivityResult(
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         searchEditText = findViewById(R.id.searchEditText);
         searchIconImageView = findViewById(R.id.searchIconImageView);
         addButton = findViewById(R.id.addButton);
-        exportFab = findViewById(R.id.exportFab); // Inicializar FAB
+        exportFab = findViewById(R.id.exportFab);
+        exitFab = findViewById(R.id.exit);
     }
 
     private void setupListeners() {
@@ -95,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Listener para Exportar Base de Datos
         exportFab.setOnClickListener(v -> initiateExport());
+        exitFab.setOnClickListener(v -> showExitConfirmation());
 
         // Búsqueda al presionar el ícono
         searchIconImageView.setOnClickListener(v -> {
@@ -109,6 +112,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             return false;
+        });
+
+        getOnBackPressedDispatcher().addCallback(this, new androidx.activity.OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showExitConfirmation();
+            }
         });
     }
 
@@ -251,12 +261,23 @@ public class MainActivity extends AppCompatActivity {
         teacherTv.setText(docente);
 
         view.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, ActivityFormSubject.class);
+            Intent intent = new Intent(MainActivity.this, ActivityDetailSubject.class);
             intent.putExtra("SUBJECT_ID", idMateria);
             intent.putExtra("STUDENT_ID", idEstudiante);
             formLauncher.launch(intent);
         });
 
         studentsContainer.addView(view);
+    }
+
+    private void showExitConfirmation() {
+        new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Salir")
+                .setMessage("¿Estás seguro que deseas salir de la aplicación?")
+                .setPositiveButton("Sí", (dialog, which) -> {
+                    finishAffinity();
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }
