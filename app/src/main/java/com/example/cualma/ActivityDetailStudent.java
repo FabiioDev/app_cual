@@ -75,11 +75,11 @@ public class ActivityDetailStudent extends AppCompatActivity {
     private void setupListeners() {
         backButton.setOnClickListener(v -> finish());
 
-        homeButton.setOnClickListener(v -> {
-            Intent intent = new Intent(this, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-        });
+//        homeButton.setOnClickListener(v -> {
+//            Intent intent = new Intent(this, MainActivity.class);
+//            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+//            startActivity(intent);
+//        });
 
         editButton.setOnClickListener(v -> {
             Intent intent = new Intent(this, ActivityFormStudent.class);
@@ -130,12 +130,6 @@ public class ActivityDetailStudent extends AppCompatActivity {
         cursorMat.close();
         db.close();
 
-        // Lógica para ocultar el botón si hay 6 o más materias
-        if (subjectCount >= 6) {
-            btnAddSubject.setVisibility(View.GONE);
-        } else {
-            btnAddSubject.setVisibility(View.VISIBLE);
-        }
     }
 
     private void addSubjectCard(int id, String name, String code, String schedule, String classroom, String teacher) {
